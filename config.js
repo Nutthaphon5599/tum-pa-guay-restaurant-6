@@ -1,6 +1,6 @@
 window.TPG_CONFIG = {
   SUPABASE_URL: "https://jypsgmauzytklwiojfzg.supabase.co",
-  SUPABASE_ANON_KEY: "PASTE_YOUR_PUBLISHABLE_KEY_HERE",
+  SUPABASE_ANON_KEY: "sb_publishable_................................",
   STORAGE_BUCKET: "menu-images",
   RESTAURANT: {
     phoneDisplay: "020 2300 3002",
