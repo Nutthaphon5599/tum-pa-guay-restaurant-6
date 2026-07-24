@@ -57,9 +57,28 @@ function renderMenu(){
    $("#menuGrid").appendChild(card);
  });
 }
-function openLightbox(src,caption){$("#lightboxImage").src=src;$("#lightboxCaption").textContent=caption;$("#lightbox").hidden=false}
-$("#lightboxClose").onclick=()=>$("#lightbox").hidden=true;
-$("#lightbox").onclick=e=>{if(e.target.id==="lightbox")$("#lightbox").hidden=true};
+function openLightbox(src, caption) {
+  $("#lightboxImage").src = src;
+  $("#lightboxCaption").textContent = caption;
+
+  $("#lightbox").hidden = false;
+  $("#lightbox").style.display = "grid";
+  document.body.style.overflow = "hidden";
+}
+
+$("#lightboxClose").onclick = () => {
+  $("#lightbox").hidden = true;
+  $("#lightbox").style.display = "none";
+  document.body.style.overflow = "";
+};
+
+$("#lightbox").onclick = (e) => {
+  if (e.target.id === "lightbox") {
+    $("#lightbox").hidden = true;
+    $("#lightbox").style.display = "none";
+    document.body.style.overflow = "";
+  }
+};
 $("#menuSearch").oninput=renderMenu;
 $("#navToggle").onclick=()=>$("#navLinks").classList.toggle("open");
 document.querySelectorAll("#navLinks a").forEach(a=>a.onclick=()=>$("#navLinks").classList.remove("open"));
