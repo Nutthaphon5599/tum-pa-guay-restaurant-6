@@ -1,0 +1,12 @@
+TUM PA GUAY V5 — QUICK SETUP
+
+1. Supabase → SQL Editor → New query
+2. Open supabase-setup.sql
+3. Copy all → Paste → Run
+4. Authentication → Users → Create user
+5. Run owner-role SQL from README
+6. Project Settings → API
+7. Copy Project URL and Publishable/Anon key
+8. Edit config.js
+9. Upload all files to GitHub
+10. Open admin.html and log in

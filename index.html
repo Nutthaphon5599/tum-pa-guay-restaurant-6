@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="lo">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tum Pa Guay Restaurant | ຮ້ານຕຳປ່າກ້ວຍ</title>
+  <meta name="description" content="ຮ້ານຕຳປ່າກ້ວຍ ອາຫານລາວບັນຍາກາດສວນ ທີ່ໄຊທານີ ນະຄອນຫຼວງວຽງຈັນ">
+  <meta property="og:title" content="Tum Pa Guay Restaurant">
+  <meta property="og:description" content="Authentic Lao garden dining in Xaythany, Vientiane Capital.">
+  <meta property="og:image" content="hero.jpg">
+  <meta name="theme-color" content="#102d1e">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-loader" id="siteLoader">
+    <img src="logo.png" alt="Tum Pa Guay">
+    <span>TUM PA GUAY</span>
+  </div>
+
+  <div class="connection-banner" id="connectionBanner" hidden></div>
+
+  <header class="header" id="header">
+    <div class="container nav">
+      <a class="brand" href="#home">
+        <img src="logo.png" alt="Tum Pa Guay logo">
+        <div><strong>ຮ້ານຕຳປ່າກ້ວຍ</strong><small>TUM PA GUAY RESTAURANT</small></div>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">☰</button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">ໜ້າຫຼັກ</a><a href="#menu">ເມນູ</a><a href="#gallery">ຮູບພາບ</a>
+        <a href="#reviews">ຣີວິວ</a><a href="#booking">ຈອງໂຕະ</a><a href="#contact">ຕິດຕໍ່</a>
+      </nav>
+      <div class="language"><button class="active">ລາວ</button><button>ไทย</button><button>EN</button></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <img src="hero.jpg" class="hero-image" alt="Tum Pa Guay Restaurant">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content reveal">
+        <p class="eyebrow">AUTHENTIC LAO GARDEN DINING</p>
+        <h1>ຮ້ານຕຳ<br>ປ່າກ້ວຍ</h1>
+        <p>ອາຫານລາວລົດຊາດຈັດຈ້ານ ທ່າມກາງສວນທຳມະຊາດ ພ້ອມຕູບສ່ວນຕົວ 90 ຕູບ.</p>
+        <div class="hero-actions">
+          <a class="btn gold" href="#menu">ເບິ່ງເມນູ</a>
+          <a class="btn outline" href="#booking">ຈອງໂຕະ</a>
+        </div>
+        <div class="hero-stats">
+          <div><strong id="menuCount">125</strong><span>MENU ITEMS</span></div>
+          <div><strong>90</strong><span>PRIVATE HUTS</span></div>
+          <div><strong>09:00–18:30</strong><span>OPEN DAILY</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section story">
+      <div class="container story-grid">
+        <div class="story-photo reveal"><img src="garden.jpg" alt="Restaurant garden"><span>GARDEN DINING</span></div>
+        <div class="story-copy reveal">
+          <p class="eyebrow dark">OUR STORY</p>
+          <h2>ອາຫານລາວ<br>ໃນບັນຍາກາດທຳມະຊາດ</h2>
+          <p>ຮ້ານຕຳປ່າກ້ວຍ ມີພື້ນທີ່ກວ້າງ ຕູບສ່ວນຕົວ ແລະ ເມນູຫຼາກຫຼາຍ ເໝາະສຳລັບຄອບຄົວ ແລະ ງານລ້ຽງ.</p>
+          <div class="feature-list"><span>🌿 ສວນທຳມະຊາດ</span><span>🏡 90 ຕູບ</span><span>🅿️ ບ່ອນຈອດລົດ</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section menu-section" id="menu">
+      <div class="container">
+        <div class="section-title reveal"><p class="eyebrow dark">SIGNATURE MENU</p><h2>ເມນູອາຫານ</h2><p>ຮູບພາບ, ຊື່ ແລະ ລາຄາຈະອັບເດດຈາກລະບົບຫຼັງບ້ານອອນລາຍ.</p></div>
+        <div class="menu-toolbar reveal">
+          <div class="search-box"><span>⌕</span><input id="menuSearch" placeholder="ຄົ້ນຫາຊື່ອາຫານ..."></div>
+          <span id="resultCount">0 items</span>
+        </div>
+        <div class="category-tabs" id="categoryTabs"></div>
+        <div class="menu-grid" id="menuGrid"></div>
+        <div class="empty" id="emptyMenu" hidden>ບໍ່ພົບເມນູ</div>
+      </div>
+    </section>
+
+    <section class="section gallery" id="gallery">
+      <div class="container">
+        <div class="section-title light reveal"><p class="eyebrow">THE EXPERIENCE</p><h2>ຮູບພາບຮ້ານ</h2></div>
+        <div class="gallery-grid">
+          <img class="tall reveal" src="gallery-1.jpg" alt=""><img class="reveal" src="gallery-2.jpg" alt="">
+          <img class="reveal" src="gallery-3.jpg" alt=""><img class="wide reveal" src="gallery-4.jpg" alt="">
+          <img class="reveal" src="gallery-5.jpg" alt=""><img class="tall reveal" src="gallery-6.jpg" alt="">
+          <img class="reveal" src="gallery-7.jpg" alt=""><img class="reveal" src="gallery-8.jpg" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="section reviews" id="reviews">
+      <div class="container">
+        <div class="section-title reveal"><p class="eyebrow dark">GUEST VOICES</p><h2>ຣີວິວລູກຄ້າ</h2></div>
+        <div class="review-grid">
+          <article class="reveal"><div>★★★★★</div><p>“ອາຫານແຊບ ບັນຍາກາດດີ ເໝາະກັບຄອບຄົວ.”</p><strong>— ລູກຄ້າປະຈຳ</strong></article>
+          <article class="reveal"><div>★★★★★</div><p>“ເມນູຫຼາຍ ບ່ອນກວ້າງ ແລະ ຈອດລົດສະດວກ.”</p><strong>— ລູກຄ້າຈາກວຽງຈັນ</strong></article>
+          <article class="reveal"><div>★★★★★</div><p>“A relaxed garden restaurant with bold Lao flavors.”</p><strong>— Visitor</strong></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section booking" id="booking">
+      <div class="container booking-grid">
+        <div class="booking-copy reveal"><p class="eyebrow">RESERVATION</p><h2>ຈອງໂຕະ</h2><p>ສົ່ງການຈອງໄປ WhatsApp ຫຼື ບັນທຶກໃນລະບົບອອນລາຍ.</p><a href="tel:02023003002">020 2300 3002</a></div>
+        <form class="booking-form reveal" id="bookingForm">
+          <label>ຊື່<input id="bookName" required></label><label>ເບີໂທ<input id="bookPhone" required></label>
+          <label>ວັນທີ<input id="bookDate" type="date" required></label><label>ເວລາ<input id="bookTime" type="time" min="09:00" max="18:30" required></label>
+          <label>ຈຳນວນຄົນ<input id="bookGuests" type="number" min="1" value="4" required></label><label>ໝາຍເຫດ<textarea id="bookNote"></textarea></label>
+          <button class="btn gold full">ຢືນຢັນການຈອງ</button><p class="form-status" id="bookingStatus"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container contact-grid">
+        <div class="reveal"><p class="eyebrow dark">VISIT US</p><h2>ຕິດຕໍ່ຮ້ານ</h2><p id="addressText"></p><p><strong>Facebook:</strong> LVmae Ladvongsa</p><div class="contact-actions"><a class="btn dark-btn" href="tel:02023003002">📞 Call</a><a class="btn whatsapp" target="_blank" href="https://wa.me/8562023003002">💬 WhatsApp</a></div></div>
+        <div class="map-card reveal"><span>📍</span><h3>Google Maps</h3><p>เพิ่มลิงก์พิกัดในไฟล์ config.js</p></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" hidden><button id="lightboxClose">×</button><img id="lightboxImage" alt=""><div id="lightboxCaption"></div></div>
+  <div class="floating"><a href="tel:02023003002">📞</a><a class="wa" target="_blank" href="https://wa.me/8562023003002">💬</a></div>
+
+  <footer><div class="container footer"><img src="logo.png" alt=""><div><strong>TUM PA GUAY RESTAURANT</strong><small>09:00–18:30 • Xaythany, Vientiane Capital</small></div><a href="admin.html">Admin</a></div></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="seed-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

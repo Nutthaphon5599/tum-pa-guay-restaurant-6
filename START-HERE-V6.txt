@@ -1,0 +1,8 @@
+TUM PA GUAY V6
+
+1. เปิด config.js
+2. วาง Publishable Key ใน SUPABASE_ANON_KEY
+3. สร้าง Admin user ใน Supabase Authentication
+4. รัน SQL เปลี่ยน role เป็น owner ตาม README.md
+5. อัปโหลดไฟล์ทั้งหมดขึ้น GitHub
+6. เปิด admin.html และ Login

@@ -1,0 +1,17 @@
+TUM PA GUAY V5 FINAL — เริ่มตรงนี้
+
+1) เปิดไฟล์ 00-RUN-FIRST-supabase-setup.sql
+2) กด Command + A แล้ว Command + C
+3) กลับไป Supabase > SQL Editor > New query
+4) คลิกในพื้นที่เขียน SQL แล้วกด Command + V
+5) กด Run
+6) สร้าง Admin user ที่ Authentication > Users
+7) ใส่ Project URL และ Publishable/Anon Key ใน config.js
+8) อัปโหลดไฟล์ทั้งหมดขึ้น GitHub repository root
+9) เปิด admin.html แล้วเข้าสู่ระบบ
+
+ไฟล์สำคัญ:
+- index.html = เว็บไซต์หน้าร้าน
+- admin.html = ระบบหลังบ้าน
+- config.js = จุดเชื่อม Supabase
+- 00-RUN-FIRST-supabase-setup.sql = ฐานข้อมูลทั้งหมด

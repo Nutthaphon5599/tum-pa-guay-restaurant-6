@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="lo">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tum Pa Guay Admin V6</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<header class="admin-header">
+  <div class="admin-brand"><img src="logo.png" alt=""><div><strong>Tum Pa Guay Admin V6</strong><small>Online restaurant management</small></div></div>
+  <div class="header-actions"><span id="adminUser"></span><button id="logoutButton" hidden>Logout</button><a href="index.html">← Website</a></div>
+</header>
+<main class="admin-shell">
+  <section class="login-card" id="loginPanel">
+    <h1>Admin Login</h1>
+    <p>เข้าสู่ระบบด้วยบัญชีที่สร้างใน Supabase Authentication</p>
+    <label>Email<input id="loginEmail" type="email" autocomplete="username"></label>
+    <label>Password<input id="loginPassword" type="password" autocomplete="current-password"></label>
+    <button id="loginButton">Login</button><p id="loginStatus"></p>
+  </section>
+
+  <section id="dashboard" hidden>
+    <div class="dashboard-head">
+      <div><h1>Restaurant Dashboard</h1><p>จัดการเมนู รูปภาพ ราคา และการจองโต๊ะ</p></div>
+      <div class="stats">
+        <div><strong id="statMenu">0</strong><span>Menus</span></div>
+        <div><strong id="statAvailable">0</strong><span>Available</span></div>
+        <div><strong id="statFeatured">0</strong><span>Featured</span></div>
+        <div><strong id="statBookings">0</strong><span>Bookings</span></div>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="active" data-tab="menus">🍽️ เมนูอาหาร</button>
+      <button data-tab="bookings">🪑 การจองโต๊ะ</button>
+      <button data-tab="calendar">📅 ปฏิทิน</button>
+      <button data-tab="settings">⚙️ ตั้งค่า</button>
+    </div>
+
+    <section class="tab-panel active" id="panel-menus">
+      <form id="menuForm" class="form-card">
+        <input id="editId" type="hidden">
+        <h2 id="formTitle">เพิ่มเมนูใหม่</h2>
+        <div class="form-grid">
+          <label>ชื่อภาษาลาว<input id="itemNameLo" required></label>
+          <label>ชื่อภาษาไทย<input id="itemNameTh"></label>
+          <label>ชื่อภาษาอังกฤษ<input id="itemNameEn"></label>
+          <label>หมวด<select id="itemCategory"></select></label>
+          <label>ราคา (ກີບ)<input id="itemPrice" type="number" min="0" value="1000" required></label>
+          <label>ลำดับ<input id="itemOrder" type="number" min="0" value="999"></label>
+          <label class="wide">ตัวเลือก/ขนาด<input id="itemVariants" placeholder="จานเล็ก / จานใหญ่"></label>
+          <label class="check"><input id="itemAvailable" type="checkbox" checked> มีขาย</label>
+          <label class="check"><input id="itemFeatured" type="checkbox"> เมนูแนะนำ</label>
+        </div>
+
+        <div class="drop-zone" id="dropZone">
+          <input id="itemImage" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+          <div class="drop-icon">🖼️</div>
+          <strong>ลากรูปอาหารมาวางที่นี่</strong>
+          <span>หรือคลิกเพื่อเลือกรูป • JPG, PNG, WEBP • ไม่เกิน 5 MB</span>
+          <img id="imagePreview" hidden alt="Preview">
+        </div>
+
+        <div class="form-actions">
+          <button class="primary">บันทึกเมนู</button>
+          <button type="button" id="cancelEdit">ยกเลิก</button>
+        </div>
+        <p class="upload-help">รูปทุกใบแสดงในกรอบขนาดเท่ากันด้วย <code>object-fit: cover</code> ชื่อและราคาจะไม่ถูกซ่อน</p>
+      </form>
+
+      <div class="toolbar">
+        <input id="adminSearch" placeholder="ค้นหาเมนู...">
+        <select id="adminCategory"><option value="all">ทุกหมวด</option></select>
+        <select id="adminAvailability"><option value="all">ทุกสถานะ</option><option value="available">มีขาย</option><option value="unavailable">ปิดขาย</option><option value="featured">เมนูแนะนำ</option></select>
+        <button id="refreshMenus">Refresh</button>
+      </div>
+      <div class="admin-menu-grid" id="adminMenuGrid"></div>
+    </section>
+
+    <section class="tab-panel" id="panel-bookings">
+      <div class="toolbar"><input id="bookingSearch" placeholder="ค้นหาชื่อลูกค้าหรือเบอร์โทร"><button id="refreshBookings">Refresh</button></div>
+      <div class="booking-table-wrap"><table><thead><tr><th>วันที่</th><th>เวลา</th><th>ลูกค้า</th><th>โทร</th><th>คน</th><th>หมายเหตุ</th><th>สถานะ</th></tr></thead><tbody id="bookingRows"></tbody></table></div>
+    </section>
+
+    <section class="tab-panel" id="panel-calendar">
+      <div class="calendar-head"><button id="prevMonth">‹</button><h2 id="calendarTitle"></h2><button id="nextMonth">›</button></div>
+      <div class="calendar-week"><span>อา</span><span>จ</span><span>อ</span><span>พ</span><span>พฤ</span><span>ศ</span><span>ส</span></div>
+      <div class="calendar-grid" id="calendarGrid"></div>
+      <div class="day-bookings" id="dayBookings"><h3>เลือกวันที่เพื่อดูการจอง</h3></div>
+    </section>
+
+    <section class="tab-panel" id="panel-settings">
+      <div class="settings-card">
+        <h2>การเชื่อมต่อ Supabase</h2>
+        <p id="connectionInfo"></p>
+        <p>Project URL ถูกใส่ไว้ใน <code>config.js</code> แล้ว เหลือใส่ Publishable Key เท่านั้น</p>
+      </div>
+    </section>
+  </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
