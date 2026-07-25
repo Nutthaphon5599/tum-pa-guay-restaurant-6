@@ -7,7 +7,7 @@ window.TPG_CONFIG = {
     phoneIntl: "8562023003002",
     whatsappIntl: "8562023003002",
     facebookName: "LVmae Ladvongsa",
-    mapsUrl: "",
+    mapsUrl: "https://maps.app.goo.gl/b2Kh1HSFB7yJhCxb9?g_st=iw",
     addressLao: "ບ້ານສະພັງເມິກ ຮ່ອມ 4, ເມືອງໄຊທານີ, ນະຄອນຫຼວງວຽງຈັນ",
     openingHours: "09:00–18:30"
   }
